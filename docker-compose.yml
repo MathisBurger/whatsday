@@ -2,6 +2,7 @@ version: '3'
 
 services:
   bot:
-    image: ghcr.io/mathisburger/whatsday
+    image: whatsday
     volumes:
       - ./config.yml:/app/config.yml
+      - ./database.db:/app/database.db
