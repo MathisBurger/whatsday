@@ -4,6 +4,7 @@ import (
 	"context"
 	waProto "go.mau.fi/whatsmeow/binary/proto"
 	"google.golang.org/protobuf/proto"
+	"math/rand"
 	"time"
 	"whatsday/internal"
 )
@@ -25,6 +26,7 @@ func main() {
 				})
 			}
 		}
-		time.Sleep(24 * time.Hour)
+		wait := 24 + rand.Intn(4)
+		time.Sleep(time.Duration(wait) * time.Hour)
 	}
 }
