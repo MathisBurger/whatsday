@@ -4,11 +4,13 @@ import (
 	"go.mau.fi/whatsmeow"
 	"go.mau.fi/whatsmeow/types"
 	"gopkg.in/yaml.v2"
+	"math/rand"
 	"os"
 )
 
 type FullConfig struct {
 	Birthdays map[string][]string `yaml:"birthdays"`
+	Messages  []string            `yaml:"messages"`
 }
 
 func (c *FullConfig) GetConfig() *FullConfig {
@@ -39,4 +41,8 @@ func (c *FullConfig) GetJIDMap(client *whatsmeow.Client) map[string][]types.JID 
 		idMap[k] = ids
 	}
 	return idMap
+}
+
+func (c *FullConfig) GetRandomMessage() string {
+	return c.Messages[rand.Intn(len(c.Messages))]
 }

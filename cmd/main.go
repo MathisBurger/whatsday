@@ -21,10 +21,10 @@ func main() {
 		if ok {
 			for _, jid := range val {
 				_, _ = client.SendMessage(context.Background(), jid, &waProto.Message{
-					Conversation: proto.String("Du hast heute Geburtstag"),
+					Conversation: proto.String(config.GetRandomMessage()),
 				})
 			}
 		}
-		time.Sleep(10 * time.Second)
+		time.Sleep(24 * time.Hour)
 	}
 }
