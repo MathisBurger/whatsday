@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  bot:
+    image: ghcr.io/mathisburger/whatsday
+    volumes:
+      - ./config.yml:/app/config.yml
